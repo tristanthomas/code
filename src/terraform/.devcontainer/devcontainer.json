@@ -1,0 +1,32 @@
+{
+  "name": "Cloud SDK",
+  "build": {
+    "dockerfile": "../Dockerfile",
+    "args": {
+      "VARIANT": "slim",
+      "VERSION": "351.0.0"
+    }
+  },
+  // Set default container specific settings.json values
+  "settings": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "python.pythonPath": "/usr/bin/python3",
+    "python.linting.enabled": true,
+    "python.linting.pylintEnabled": true,
+    "python.linting.flake8Enabled": true,
+    "python.formatting.provider": "black",
+    "python.formatting.blackPath": "/usr/local/bin/black",
+    "python.formatting.blackArgs": ["--line-length", "100"],
+    "python.linting.flake8Path": "/usr/local/bin/flake8",
+    "python.linting.pylintPath": "/usr/local/bin/pylint",
+    "python.linting.pylintArgs": ["--max-line-length=100"]
+  },
+  // Set default extensions to install into the container
+  "extensions": [
+    "esbenp.prettier-vscode",
+    "hashicorp.terraform",
+    "ms-python.python"
+  ],
+  // Use 'postCreateCommand' to run commands after the container is created
+  "postCreateCommand": "apt-get install gnupg2 && pip3 install pylint flake8 black"
+}
