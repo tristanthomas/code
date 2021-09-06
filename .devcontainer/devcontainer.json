@@ -4,7 +4,7 @@
     "dockerfile": "../Dockerfile",
     "args": {
       "VARIANT": "slim",
-      "VERSION": "351.0.0"
+      "VERSION": "355.0.0"
     }
   },
   // Set default container specific settings.json values
